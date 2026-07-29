@@ -91,6 +91,16 @@ jobs:
         working-directory: 1 - Deployment (source code)/source-code/app/customer
         run: flutter pub get
 
+      - name: Patch Podfile (remove RunnerTests target)
+        working-directory: 1 - Deployment (source code)/source-code/app/customer/ios
+        run: |
+          if [ -f Podfile ]; then
+            sed -i '' '/^target .RunnerTests/,/^end$/d' Podfile
+            echo "Patched Podfile"
+          else
+            echo "No Podfile found, will be generated during build"
+          fi
+
       - name: Build iOS (no codesign)
         working-directory: 1 - Deployment (source code)/source-code/app/customer
         run: flutter build ios --no-codesign --debug
@@ -117,6 +127,16 @@ jobs:
       - name: Get dependencies
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
         run: flutter pub get
+
+      - name: Patch Podfile (remove RunnerTests target)
+        working-directory: 1 - Deployment (source code)/source-code/app/delivery/ios
+        run: |
+          if [ -f Podfile ]; then
+            sed -i '' '/^target .RunnerTests/,/^end$/d' Podfile
+            echo "Patched Podfile"
+          else
+            echo "No Podfile found, will be generated during build"
+          fi
 
       - name: Build iOS (no codesign)
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
