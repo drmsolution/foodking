@@ -1,0 +1,44 @@
+# PHP
+/vendor/
+
+# Node
+node_modules/
+
+# Flutter
+**/build/
+**/.dart_tool/
+**/.packages
+**/.pub/
+**/pubspec.lock
+**/*.jks
+**/key.properties
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+
+# Service account credentials
+**/service-account-file.json
+
+# Logs
+*.log
+storage/logs/
+
+# Cache
+storage/framework/cache/data/
+bootstrap/cache/
+
+# Duplicate zip files
+**/*.zip
+
+# Temp
+temp/

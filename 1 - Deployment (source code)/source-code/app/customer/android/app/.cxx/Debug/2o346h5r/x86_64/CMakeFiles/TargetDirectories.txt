@@ -1,0 +1,2 @@
+D:/iniLabs/bug-solving/foodking-customer-app/android/app/.cxx/Debug/2o346h5r/x86_64/CMakeFiles/edit_cache.dir
+D:/iniLabs/bug-solving/foodking-customer-app/android/app/.cxx/Debug/2o346h5r/x86_64/CMakeFiles/rebuild_cache.dir

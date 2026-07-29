@@ -1,0 +1,1 @@
+D:\iniLabs\bug-solving\foodking-customer-app\build\app\intermediates\cxx\RelWithDebInfo\20164y6i\obj\arm64-v8a

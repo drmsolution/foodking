@@ -1,0 +1,2 @@
+D:/iniLabs/bug-solving/foodking-delivery-app/android/app/.cxx/Debug/e491o4nk/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/iniLabs/bug-solving/foodking-delivery-app/android/app/.cxx/Debug/e491o4nk/armeabi-v7a/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,176 @@
+/* ============================================
+   FoodKing Professional UI Overrides
+   ============================================ */
+
+/* Glassmorphism Header */
+.db-header, .db-sidebar {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6) !important;
+}
+
+/* Sidebar active indicators */
+.db-sidebar .sidebar-item.active {
+    border-left: 3px solid #FF006B !important;
+    background: linear-gradient(90deg, rgba(255, 0, 107, 0.08) 0%, transparent 100%) !important;
+}
+.db-sidebar .sidebar-item.active .sidebar-text {
+    color: #FF006B !important;
+    font-weight: 600 !important;
+}
+
+.db-sidebar .sidebar-item:hover {
+    background: rgba(255, 0, 107, 0.04) !important;
+}
+
+/* Card hover effects */
+.db-card, .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+.db-card:hover, .card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Table styles */
+.db-table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+.db-table thead th {
+    background: #F8F9FC !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    color: #64748B !important;
+    padding: 12px 16px !important;
+    border-bottom: 2px solid #E2E8F0 !important;
+}
+.db-table tbody td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    vertical-align: middle !important;
+}
+.db-table tbody tr:hover {
+    background: #FAFBFF !important;
+}
+
+/* Button radius consistency */
+.btn, button:not(.no-round) {
+    border-radius: 8px !important;
+}
+.btn-sm {
+    border-radius: 6px !important;
+}
+
+/* Form inputs */
+input, select, textarea, .form-control {
+    border-radius: 8px !important;
+    border: 1.5px solid #E2E8F0 !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+input:focus, select:focus, textarea:focus, .form-control:focus {
+    border-color: #FF006B !important;
+    box-shadow: 0 0 0 3px rgba(255, 0, 107, 0.1) !important;
+    outline: none !important;
+}
+
+/* Modal style */
+.modal-content {
+    border-radius: 16px !important;
+    border: none !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12) !important;
+}
+.modal-header {
+    border-bottom: 1px solid #F1F5F9 !important;
+    padding: 20px 24px !important;
+}
+.modal-footer {
+    border-top: 1px solid #F1F5F9 !important;
+    padding: 16px 24px !important;
+}
+
+/* Dropdown improvement */
+.dropdown-menu {
+    border-radius: 10px !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+    padding: 6px !important;
+}
+.dropdown-item {
+    border-radius: 6px !important;
+    padding: 8px 14px !important;
+    transition: background 0.15s ease !important;
+}
+.dropdown-item:hover {
+    background: #F8F9FC !important;
+}
+
+/* Badge styles */
+.badge, .db-table-badge {
+    padding: 4px 12px !important;
+    border-radius: 20px !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1 !important;
+    border-radius: 3px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8 !important;
+}
+
+/* Pagination */
+.pagination .page-item .page-link {
+    border-radius: 8px !important;
+    margin: 0 2px !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #475569 !important;
+    transition: all 0.2s ease !important;
+}
+.pagination .page-item.active .page-link {
+    background: #FF006B !important;
+    border-color: #FF006B !important;
+    color: white !important;
+}
+.pagination .page-item .page-link:hover {
+    background: #F1F5F9 !important;
+}
+
+/* Tab styles */
+.nav-tabs .nav-link {
+    border-radius: 8px 8px 0 0 !important;
+    font-weight: 500 !important;
+    color: #64748B !important;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease !important;
+}
+.nav-tabs .nav-link.active {
+    color: #FF006B !important;
+    border-bottom-color: #FF006B !important;
+}
+
+/* Loading spinner */
+.spinner-border {
+    color: #FF006B !important;
+}
+
+/* Success/error toast improvements */
+.Vue-Toastification__toast {
+    border-radius: 10px !important;
+    font-family: inherit !important;
+}
