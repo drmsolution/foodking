@@ -89,11 +89,12 @@ jobs:
 
       - name: Patch Flutter Podfile template (remove RunnerTests)
         run: |
-          TEMPLATE_DIR="$FLUTTER_ROOT/packages/flutter_tools/templates/cocoapods"
-          for f in "$TEMPLATE_DIR"/Podfile-ios*; do
+          echo "=== Templates before patch ==="
+          ls -la "$FLUTTER_ROOT/packages/flutter_tools/templates/cocoapods/"
+          for f in "$FLUTTER_ROOT"/packages/flutter_tools/templates/cocoapods/Podfile-ios*; do
             if [ -f "$f" ]; then
-              sed -i '' '/^target .RunnerTests/,/^end$/d' "$f"
-              echo "Patched: $f"
+              echo "--- Patched: $f ---"
+              sed -i '' '/RunnerTests/d' "$f"
             fi
           done
 
@@ -126,11 +127,12 @@ jobs:
 
       - name: Patch Flutter Podfile template (remove RunnerTests)
         run: |
-          TEMPLATE_DIR="$FLUTTER_ROOT/packages/flutter_tools/templates/cocoapods"
-          for f in "$TEMPLATE_DIR"/Podfile-ios*; do
+          echo "=== Templates before patch ==="
+          ls -la "$FLUTTER_ROOT/packages/flutter_tools/templates/cocoapods/"
+          for f in "$FLUTTER_ROOT"/packages/flutter_tools/templates/cocoapods/Podfile-ios*; do
             if [ -f "$f" ]; then
-              sed -i '' '/^target .RunnerTests/,/^end$/d' "$f"
-              echo "Patched: $f"
+              echo "--- Patched: $f ---"
+              sed -i '' '/RunnerTests/d' "$f"
             fi
           done
 
