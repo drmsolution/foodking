@@ -94,7 +94,19 @@ jobs:
           for f in "$FLUTTER_ROOT"/packages/flutter_tools/templates/cocoapods/Podfile-ios*; do
             if [ -f "$f" ]; then
               echo "--- Patched: $f ---"
-              sed -i '' '/RunnerTests/d' "$f"
+              python3 -c "
+import re
+with open('$f', 'r') as f:
+    content = f.read()
+content = re.sub(
+    r'^[ ]*target .RunnerTests.*\n(?:[ ]*.*\n)*?[ ]*end\n',
+    '',
+    content,
+    flags=re.MULTILINE
+)
+with open('$f', 'w') as f:
+    f.write(content)
+"
             fi
           done
 
@@ -132,7 +144,19 @@ jobs:
           for f in "$FLUTTER_ROOT"/packages/flutter_tools/templates/cocoapods/Podfile-ios*; do
             if [ -f "$f" ]; then
               echo "--- Patched: $f ---"
-              sed -i '' '/RunnerTests/d' "$f"
+              python3 -c "
+import re
+with open('$f', 'r') as f:
+    content = f.read()
+content = re.sub(
+    r'^[ ]*target .RunnerTests.*\n(?:[ ]*.*\n)*?[ ]*end\n',
+    '',
+    content,
+    flags=re.MULTILINE
+)
+with open('$f', 'w') as f:
+    f.write(content)
+"
             fi
           done
 
