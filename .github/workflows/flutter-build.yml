@@ -87,8 +87,15 @@ jobs:
           flutter-version: '3.27.x'
           channel: 'stable'
 
-      - name: Install compatible CocoaPods
-        run: sudo gem install cocoapods -v 1.15.2 --no-document
+      - name: Patch Flutter Podfile template (remove RunnerTests)
+        run: |
+          TEMPLATE_DIR="$FLUTTER_ROOT/packages/flutter_tools/templates/cocoapods"
+          for f in "$TEMPLATE_DIR"/Podfile-ios*; do
+            if [ -f "$f" ]; then
+              sed -i '' '/^target .RunnerTests/,/^end$/d' "$f"
+              echo "Patched: $f"
+            fi
+          done
 
       - name: Get dependencies
         working-directory: 1 - Deployment (source code)/source-code/app/customer
@@ -117,8 +124,15 @@ jobs:
           flutter-version: '3.27.x'
           channel: 'stable'
 
-      - name: Install compatible CocoaPods
-        run: sudo gem install cocoapods -v 1.15.2 --no-document
+      - name: Patch Flutter Podfile template (remove RunnerTests)
+        run: |
+          TEMPLATE_DIR="$FLUTTER_ROOT/packages/flutter_tools/templates/cocoapods"
+          for f in "$TEMPLATE_DIR"/Podfile-ios*; do
+            if [ -f "$f" ]; then
+              sed -i '' '/^target .RunnerTests/,/^end$/d' "$f"
+              echo "Patched: $f"
+            fi
+          done
 
       - name: Get dependencies
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
