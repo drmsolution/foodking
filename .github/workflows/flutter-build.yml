@@ -78,11 +78,18 @@ jobs:
       - name: Patch google_api_headers for Kotlin 2.0 null safety
         run: |
           FILE=$(find "$PUB_CACHE/hosted/pub.dev" -path "*/google_api_headers*/android/src/main/kotlin/*/GoogleApiHeadersPlugin.kt" 2>/dev/null | head -1)
+          if [ -z "$FILE" ]; then
+            echo "WARNING: google_api_headers source not found via PUB_CACHE"
+            FILE=$(find /home/runner/.pub-cache/hosted/pub.dev -path "*/google_api_headers*/*.kt" -name "GoogleApiHeadersPlugin.kt" 2>/dev/null | head -1)
+          fi
           if [ -n "$FILE" ]; then
+            echo "Found: $FILE"
+            grep -n 'signingInfo' "$FILE"
             sed -i 's/\.signingInfo\.apkContentsSigners\.forEach/?\.signingInfo?\.apkContentsSigners?\.forEach/g' "$FILE"
-            echo "Patched: $FILE"
+            echo "After patch:"
+            grep -n 'signingInfo' "$FILE"
           else
-            echo "WARNING: google_api_headers source not found"
+            echo "WARNING: google_api_headers source not found after fallback"
           fi
 
       - name: Build APK
