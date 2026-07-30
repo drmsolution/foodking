@@ -102,6 +102,9 @@ jobs:
         working-directory: 1 - Deployment (source code)/source-code/app/customer
         run: flutter pub get
 
+      - name: Update CocoaPods specs repo
+        run: pod repo update
+
       - name: Build iOS (no codesign)
         working-directory: 1 - Deployment (source code)/source-code/app/customer
         run: flutter build ios --no-codesign --debug
@@ -139,6 +142,9 @@ jobs:
       - name: Get dependencies
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
         run: flutter pub get
+
+      - name: Update CocoaPods specs repo
+        run: pod repo update
 
       - name: Build iOS (no codesign)
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
