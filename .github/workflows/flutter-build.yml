@@ -102,8 +102,9 @@ jobs:
         working-directory: 1 - Deployment (source code)/source-code/app/customer
         run: flutter pub get
 
-      - name: Update CocoaPods specs repo
-        run: pod repo update
+      - name: Pre-install pods (update CDN cache)
+        working-directory: 1 - Deployment (source code)/source-code/app/customer
+        run: pod install --repo-update
 
       - name: Build iOS (no codesign)
         working-directory: 1 - Deployment (source code)/source-code/app/customer
@@ -143,8 +144,9 @@ jobs:
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
         run: flutter pub get
 
-      - name: Update CocoaPods specs repo
-        run: pod repo update
+      - name: Pre-install pods (update CDN cache)
+        working-directory: 1 - Deployment (source code)/source-code/app/delivery
+        run: pod install --repo-update
 
       - name: Build iOS (no codesign)
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
