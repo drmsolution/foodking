@@ -31,6 +31,17 @@ jobs:
         working-directory: 1 - Deployment (source code)/source-code/app/customer
         run: flutter pub get
 
+      - name: Patch google_api_headers for Kotlin 2.0 null safety
+        run: |
+          FILE=$(find "$PUB_CACHE/hosted/pub.dev" -path "*/google_api_headers*/android/src/main/kotlin/*/GoogleApiHeadersPlugin.kt" 2>/dev/null | head -1)
+          if [ -n "$FILE" ]; then
+            sed -i 's/\.signingInfo\.apkContentsSigners/?\.signingInfo?\.apkContentsSigners/g' "$FILE"
+            echo "Patched: $FILE"
+          else
+            echo "WARNING: google_api_headers source not found"
+            find . -name "*.kt" -path "*/google_api_headers/*" 2>/dev/null | head -5
+          fi
+
       - name: Build APK
         working-directory: 1 - Deployment (source code)/source-code/app/customer
         run: flutter build apk --debug
@@ -63,6 +74,16 @@ jobs:
       - name: Get dependencies
         working-directory: 1 - Deployment (source code)/source-code/app/delivery
         run: flutter pub get
+
+      - name: Patch google_api_headers for Kotlin 2.0 null safety
+        run: |
+          FILE=$(find "$PUB_CACHE/hosted/pub.dev" -path "*/google_api_headers*/android/src/main/kotlin/*/GoogleApiHeadersPlugin.kt" 2>/dev/null | head -1)
+          if [ -n "$FILE" ]; then
+            sed -i 's/\.signingInfo\.apkContentsSigners/?\.signingInfo?\.apkContentsSigners/g' "$FILE"
+            echo "Patched: $FILE"
+          else
+            echo "WARNING: google_api_headers source not found"
+          fi
 
       - name: Build APK
         working-directory: 1 - Deployment (source code)/source-code/app/delivery

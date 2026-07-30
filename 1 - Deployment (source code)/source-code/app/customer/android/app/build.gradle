@@ -83,26 +83,4 @@ dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
 }
 
-// Workaround for google_api_headers 4.3.5 Kotlin 2.0 null safety
-task patchGoogleApiHeaders {
-    doLast {
-        def srcDir = file("${rootProject.projectDir}/.symlinks/plugins/google_api_headers/android/src/main/kotlin")
-        if (srcDir.exists()) {
-            fileTree(srcDir).include("**/*.kt").each { f ->
-                def text = f.text
-                def patched = text.replaceAll(/\\)\.signingInfo\.apkContentsSigners/, ')?.signingInfo?.apkContentsSigners')
-                if (patched != text) {
-                    f.text = patched
-                    println "Patched google_api_headers: ${f.name}"
-                }
-            }
-        } else {
-            println "WARNING: google_api_headers source not found at ${srcDir}"
-        }
-    }
-}
-tasks.whenTaskAdded { task ->
-    if (task.name.toLowerCase().contains('compile') && task.name.toLowerCase().contains('kotlin')) {
-        task.dependsOn patchGoogleApiHeaders
-    }
-}
+
