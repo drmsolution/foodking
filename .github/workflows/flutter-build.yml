@@ -94,19 +94,7 @@ jobs:
           for f in "$FLUTTER_ROOT"/packages/flutter_tools/templates/cocoapods/Podfile-ios*; do
             if [ -f "$f" ]; then
               echo "--- Patched: $f ---"
-              python3 -c "
-import re
-with open('$f', 'r') as f:
-    content = f.read()
-content = re.sub(
-    r'^[ ]*target .RunnerTests.*\n(?:[ ]*.*\n)*?[ ]*end\n',
-    '',
-    content,
-    flags=re.MULTILINE
-)
-with open('$f', 'w') as f:
-    f.write(content)
-"
+              python3 -c "import re; f='$f'; c=open(f).read(); open(f,'w').write(re.sub(r'^[ ]*target .RunnerTests.*\n(?:[ ]*.*\n)*?[ ]*end\n','',c,flags=re.MULTILINE))"
             fi
           done
 
@@ -144,19 +132,7 @@ with open('$f', 'w') as f:
           for f in "$FLUTTER_ROOT"/packages/flutter_tools/templates/cocoapods/Podfile-ios*; do
             if [ -f "$f" ]; then
               echo "--- Patched: $f ---"
-              python3 -c "
-import re
-with open('$f', 'r') as f:
-    content = f.read()
-content = re.sub(
-    r'^[ ]*target .RunnerTests.*\n(?:[ ]*.*\n)*?[ ]*end\n',
-    '',
-    content,
-    flags=re.MULTILINE
-)
-with open('$f', 'w') as f:
-    f.write(content)
-"
+              python3 -c "import re; f='$f'; c=open(f).read(); open(f,'w').write(re.sub(r'^[ ]*target .RunnerTests.*\n(?:[ ]*.*\n)*?[ ]*end\n','',c,flags=re.MULTILINE))"
             fi
           done
 
