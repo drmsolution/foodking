@@ -50,7 +50,7 @@ dependencies:
   flutter_html:
   google_maps_flutter_ios: ^2.13.0
   google_fonts: any
-  google_api_headers: ^4.4.3
+  google_api_headers: ^4.2.6
 
   flutter:
     sdk: flutter
