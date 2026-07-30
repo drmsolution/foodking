@@ -103,7 +103,7 @@ jobs:
         run: flutter pub get
 
       - name: Pre-install pods (update CDN cache)
-        working-directory: 1 - Deployment (source code)/source-code/app/customer
+        working-directory: 1 - Deployment (source code)/source-code/app/customer/ios
         run: pod install --repo-update
 
       - name: Build iOS (no codesign)
@@ -145,7 +145,7 @@ jobs:
         run: flutter pub get
 
       - name: Pre-install pods (update CDN cache)
-        working-directory: 1 - Deployment (source code)/source-code/app/delivery
+        working-directory: 1 - Deployment (source code)/source-code/app/delivery/ios
         run: pod install --repo-update
 
       - name: Build iOS (no codesign)
