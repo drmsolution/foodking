@@ -35,7 +35,7 @@ jobs:
         run: |
           FILE=$(find "$PUB_CACHE/hosted/pub.dev" -path "*/google_api_headers*/android/src/main/kotlin/*/GoogleApiHeadersPlugin.kt" 2>/dev/null | head -1)
           if [ -n "$FILE" ]; then
-            sed -i 's/\.signingInfo\.apkContentsSigners/?\.signingInfo?\.apkContentsSigners/g' "$FILE"
+            sed -i 's/\.signingInfo\.apkContentsSigners\.forEach/?\.signingInfo?\.apkContentsSigners?\.forEach/g' "$FILE"
             echo "Patched: $FILE"
           else
             echo "WARNING: google_api_headers source not found"
@@ -79,7 +79,7 @@ jobs:
         run: |
           FILE=$(find "$PUB_CACHE/hosted/pub.dev" -path "*/google_api_headers*/android/src/main/kotlin/*/GoogleApiHeadersPlugin.kt" 2>/dev/null | head -1)
           if [ -n "$FILE" ]; then
-            sed -i 's/\.signingInfo\.apkContentsSigners/?\.signingInfo?\.apkContentsSigners/g' "$FILE"
+            sed -i 's/\.signingInfo\.apkContentsSigners\.forEach/?\.signingInfo?\.apkContentsSigners?\.forEach/g' "$FILE"
             echo "Patched: $FILE"
           else
             echo "WARNING: google_api_headers source not found"
